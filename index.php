@@ -37,6 +37,32 @@ $mode = 1; // 0 = Text mode; 1 = Image mode
   
 <?php
 if($_GET['action'] == 'play') {
+	if($_POST['colour'] == 'randall') {
+		$ball_colour = mt_rand(1, 7);
+		switch($ball_colour) {
+			case '1':
+				$_POST['colour'] = 'all';
+				break;
+			case '2':
+				$_POST['colour'] = 'red';
+				break;
+			case '3':
+				$_POST['colour'] = 'green';
+				break;
+			case '4':
+				$_POST['colour'] = 'blue';
+				break;
+			case '5':
+				$_POST['colour'] = 'wored';
+				break;
+			case '6':
+				$_POST['colour'] = 'wogreen';
+				break;
+			case '7':
+				$_POST['colour'] = 'woblue';
+				break;
+		}
+	}
 	switch($_POST['colour']) {
 		case 'all':
 			$balls = 48;
@@ -72,8 +98,6 @@ if($_GET['action'] == 'play') {
 			$balls = 32;
 			$ball_number = array(1, 2, 5, 6, 7, 8, 11, 12, 13, 16, 17, 18, 19, 21, 22, 23, 24, 27, 28, 29, 30, 32, 33, 34, 35, 38, 39, 40, 43, 44, 45, 46, 49);
 			$random_number = $ball_number[mt_rand(0, $balls)];
-			break;
-		case 'randall':
 			break;
 	}
 	$ball = array();
