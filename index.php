@@ -1,11 +1,12 @@
 <?php
-$title = 'Marksix v2.4';
+$title = 'Marksix v2.5';
 $mode = 1; // 0 = Text mode; 1 = Image mode
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html class="no-js">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 <title><?php echo $title;?></title>
 </head>
 
@@ -28,6 +29,8 @@ $mode = 1; // 0 = Text mode; 1 = Image mode
       走綠色
       <input type="radio" name="colour" id="woblue" value="woblue" />
       走藍色
+      <input type="radio" name="colour" id="randall" value="randall" />
+      全部隨機
       <input type="submit" name="submit" id="submit" value="攪珠" />
     </label>
   </form>
@@ -69,6 +72,8 @@ if($_GET['action'] == 'play') {
 			$balls = 32;
 			$ball_number = array(1, 2, 5, 6, 7, 8, 11, 12, 13, 16, 17, 18, 19, 21, 22, 23, 24, 27, 28, 29, 30, 32, 33, 34, 35, 38, 39, 40, 43, 44, 45, 46, 49);
 			$random_number = $ball_number[mt_rand(0, $balls)];
+			break;
+		case 'randall':
 			break;
 	}
 	$ball = array();
