@@ -21,10 +21,10 @@ $mode = 1; // 0 = Text mode; 1 = Image mode
           <div class="col-md-12">
             <h1 class="display-1">Marksix</h1>
             <hr class="" draggable="true">
-            <form method="post" action="?action=play">
+            <form method="post">
               <div class="form-group">
                 <label>號碼球</label>
-                <select class="form-control">
+                <select class="form-control" name="colour">
                   <option value="all">全部</option>
                   <option value="red">紅色</option>
                   <option value="green">綠色</option>
@@ -38,7 +38,7 @@ $mode = 1; // 0 = Text mode; 1 = Image mode
               <button type="submit" class="btn btn-primary"><i class="fa fa-star fa-fw"></i>攪珠</button>
             </form>
 <?php
-if($_GET['action'] == 'play') {
+if(isset($_POST['colour'])) {
   if($_POST['colour'] == 'randall') {
     $ball_colour = mt_rand(1, 7);
     switch($ball_colour) {
@@ -114,13 +114,15 @@ if($_GET['action'] == 'play') {
       }
     }
   }
+  echo "<p class=\"m-y-1\">";
   if($mode == 0) {
     print join(', ', $ball);
   } else {
     foreach($ball as $value) {
-      echo "<img src=\"images/".$value.".gif\" alt=\"".$value."\" />";
+      echo "<img src=\"images/$value.gif\" alt=\"$value\">";
     }
   }
+  echo "</p>";
 }
 ?>
             <p class="m-y-3">&copy eService-HK</p>
